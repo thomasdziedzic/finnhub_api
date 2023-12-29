@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.BreakdownItem do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.BreakdownItem do
   ]
 
   @type t :: %__MODULE__{
-    :accessNumber => String.t | nil,
-    :breakdown => map() | nil
-  }
+          :accessNumber => String.t() | nil,
+          :breakdown => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

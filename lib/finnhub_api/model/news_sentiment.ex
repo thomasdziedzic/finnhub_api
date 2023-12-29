@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.NewsSentiment do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,20 +17,19 @@ defmodule FinnhubAPI.Model.NewsSentiment do
   ]
 
   @type t :: %__MODULE__{
-    :buzz => FinnhubAPI.Model.CompanyNewsStatistics.t | nil,
-    :companyNewsScore => float() | nil,
-    :sectorAverageBullishPercent => float() | nil,
-    :sectorAverageNewsScore => float() | nil,
-    :sentiment => FinnhubAPI.Model.Sentiment.t | nil,
-    :symbol => String.t | nil
-  }
+          :buzz => FinnhubAPI.Model.CompanyNewsStatistics.t() | nil,
+          :companyNewsScore => float() | nil,
+          :sectorAverageBullishPercent => float() | nil,
+          :sectorAverageNewsScore => float() | nil,
+          :sentiment => FinnhubAPI.Model.Sentiment.t() | nil,
+          :symbol => String.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:buzz, :struct, FinnhubAPI.Model.CompanyNewsStatistics)
-     |> Deserializer.deserialize(:sentiment, :struct, FinnhubAPI.Model.Sentiment)
+    |> Deserializer.deserialize(:buzz, :struct, FinnhubAPI.Model.CompanyNewsStatistics)
+    |> Deserializer.deserialize(:sentiment, :struct, FinnhubAPI.Model.Sentiment)
   end
 end
-

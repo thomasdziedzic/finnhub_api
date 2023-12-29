@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InstitutionalPortfolio do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,16 +14,15 @@ defmodule FinnhubAPI.Model.InstitutionalPortfolio do
   ]
 
   @type t :: %__MODULE__{
-    :name => String.t | nil,
-    :cik => String.t | nil,
-    :data => [FinnhubAPI.Model.InstitutionalPortfolioGroup.t] | nil
-  }
+          :name => String.t() | nil,
+          :cik => String.t() | nil,
+          :data => [FinnhubAPI.Model.InstitutionalPortfolioGroup.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.InstitutionalPortfolioGroup)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.InstitutionalPortfolioGroup)
   end
 end
-

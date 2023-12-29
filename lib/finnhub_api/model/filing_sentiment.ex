@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.FilingSentiment do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -20,19 +20,18 @@ defmodule FinnhubAPI.Model.FilingSentiment do
   ]
 
   @type t :: %__MODULE__{
-    :negative => float() | nil,
-    :positive => float() | nil,
-    :polarity => float() | nil,
-    :litigious => float() | nil,
-    :uncertainty => float() | nil,
-    :constraining => float() | nil,
-    :"modal-weak" => float() | nil,
-    :"modal-strong" => float() | nil,
-    :"modal-moderate" => float() | nil
-  }
+          :negative => float() | nil,
+          :positive => float() | nil,
+          :polarity => float() | nil,
+          :litigious => float() | nil,
+          :uncertainty => float() | nil,
+          :constraining => float() | nil,
+          :"modal-weak" => float() | nil,
+          :"modal-strong" => float() | nil,
+          :"modal-moderate" => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.StockTranscripts do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -16,15 +16,14 @@ defmodule FinnhubAPI.Model.StockTranscripts do
   ]
 
   @type t :: %__MODULE__{
-    :id => String.t | nil,
-    :title => String.t | nil,
-    :time => String.t | nil,
-    :year => integer() | nil,
-    :quarter => integer() | nil
-  }
+          :id => String.t() | nil,
+          :title => String.t() | nil,
+          :time => String.t() | nil,
+          :year => integer() | nil,
+          :quarter => integer() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

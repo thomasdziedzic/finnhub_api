@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EconomicCalendar do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -12,14 +12,13 @@ defmodule FinnhubAPI.Model.EconomicCalendar do
   ]
 
   @type t :: %__MODULE__{
-    :economicCalendar => [FinnhubAPI.Model.EconomicEvent.t] | nil
-  }
+          :economicCalendar => [FinnhubAPI.Model.EconomicEvent.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:economicCalendar, :list, FinnhubAPI.Model.EconomicEvent)
+    |> Deserializer.deserialize(:economicCalendar, :list, FinnhubAPI.Model.EconomicEvent)
   end
 end
-

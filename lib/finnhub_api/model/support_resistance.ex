@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SupportResistance do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -12,11 +12,10 @@ defmodule FinnhubAPI.Model.SupportResistance do
   ]
 
   @type t :: %__MODULE__{
-    :levels => [float()] | nil
-  }
+          :levels => [float()] | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

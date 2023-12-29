@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.DocumentResponse do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,19 +17,18 @@ defmodule FinnhubAPI.Model.DocumentResponse do
   ]
 
   @type t :: %__MODULE__{
-    :documentId => String.t | nil,
-    :title => String.t | nil,
-    :hits => String.t | nil,
-    :url => String.t | nil,
-    :format => String.t | nil,
-    :excerpts => [FinnhubAPI.Model.ExcerptResponse.t] | nil
-  }
+          :documentId => String.t() | nil,
+          :title => String.t() | nil,
+          :hits => String.t() | nil,
+          :url => String.t() | nil,
+          :format => String.t() | nil,
+          :excerpts => [FinnhubAPI.Model.ExcerptResponse.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:excerpts, :list, FinnhubAPI.Model.ExcerptResponse)
+    |> Deserializer.deserialize(:excerpts, :list, FinnhubAPI.Model.ExcerptResponse)
   end
 end
-

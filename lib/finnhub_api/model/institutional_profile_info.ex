@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InstitutionalProfileInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,16 +17,15 @@ defmodule FinnhubAPI.Model.InstitutionalProfileInfo do
   ]
 
   @type t :: %__MODULE__{
-    :cik => String.t | nil,
-    :firmType => String.t | nil,
-    :manager => String.t | nil,
-    :philosophy => String.t | nil,
-    :profile => String.t | nil,
-    :profileImg => String.t | nil
-  }
+          :cik => String.t() | nil,
+          :firmType => String.t() | nil,
+          :manager => String.t() | nil,
+          :philosophy => String.t() | nil,
+          :profile => String.t() | nil,
+          :profileImg => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

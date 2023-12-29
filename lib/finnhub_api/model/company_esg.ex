@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyEsg do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,16 +17,15 @@ defmodule FinnhubAPI.Model.CompanyEsg do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :totalESGScore => float() | nil,
-    :environmentScore => float() | nil,
-    :governanceScore => float() | nil,
-    :socialScore => float() | nil,
-    :data => map() | nil
-  }
+          :symbol => String.t() | nil,
+          :totalESGScore => float() | nil,
+          :environmentScore => float() | nil,
+          :governanceScore => float() | nil,
+          :socialScore => float() | nil,
+          :data => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

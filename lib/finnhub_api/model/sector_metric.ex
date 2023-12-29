@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SectorMetric do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.SectorMetric do
   ]
 
   @type t :: %__MODULE__{
-    :region => String.t | nil,
-    :data => [FinnhubAPI.Model.SectorMetricData.t] | nil
-  }
+          :region => String.t() | nil,
+          :data => [FinnhubAPI.Model.SectorMetricData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.SectorMetricData)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.SectorMetricData)
   end
 end
-

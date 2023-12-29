@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Indicator do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,13 +14,12 @@ defmodule FinnhubAPI.Model.Indicator do
   ]
 
   @type t :: %__MODULE__{
-    :buy => integer() | nil,
-    :neutral => integer() | nil,
-    :sell => integer() | nil
-  }
+          :buy => integer() | nil,
+          :neutral => integer() | nil,
+          :sell => integer() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

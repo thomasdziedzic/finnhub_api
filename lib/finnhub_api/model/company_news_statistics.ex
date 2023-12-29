@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyNewsStatistics do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,13 +14,12 @@ defmodule FinnhubAPI.Model.CompanyNewsStatistics do
   ]
 
   @type t :: %__MODULE__{
-    :articlesInLastWeek => integer() | nil,
-    :buzz => float() | nil,
-    :weeklyAverage => float() | nil
-  }
+          :articlesInLastWeek => integer() | nil,
+          :buzz => float() | nil,
+          :weeklyAverage => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyEarningsQualityScoreData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,17 +18,16 @@ defmodule FinnhubAPI.Model.CompanyEarningsQualityScoreData do
   ]
 
   @type t :: %__MODULE__{
-    :period => String.t | nil,
-    :growth => float() | nil,
-    :profitability => float() | nil,
-    :cashGenerationCapitalAllocation => float() | nil,
-    :leverage => float() | nil,
-    :score => float() | nil,
-    :letterScore => String.t | nil
-  }
+          :period => String.t() | nil,
+          :growth => float() | nil,
+          :profitability => float() | nil,
+          :cashGenerationCapitalAllocation => float() | nil,
+          :leverage => float() | nil,
+          :score => float() | nil,
+          :letterScore => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

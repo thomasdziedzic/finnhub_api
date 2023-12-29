@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.UsptoPatent do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -20,19 +20,18 @@ defmodule FinnhubAPI.Model.UsptoPatent do
   ]
 
   @type t :: %__MODULE__{
-    :applicationNumber => String.t | nil,
-    :companyFilingName => [String.t] | nil,
-    :filingDate => String.t | nil,
-    :description => String.t | nil,
-    :filingStatus => String.t | nil,
-    :patentNumber => String.t | nil,
-    :publicationDate => String.t | nil,
-    :patentType => String.t | nil,
-    :url => String.t | nil
-  }
+          :applicationNumber => String.t() | nil,
+          :companyFilingName => [String.t()] | nil,
+          :filingDate => String.t() | nil,
+          :description => String.t() | nil,
+          :filingStatus => String.t() | nil,
+          :patentNumber => String.t() | nil,
+          :publicationDate => String.t() | nil,
+          :patentType => String.t() | nil,
+          :url => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.BondYieldCurve do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.BondYieldCurve do
   ]
 
   @type t :: %__MODULE__{
-    :data => [FinnhubAPI.Model.BondYieldCurveInfo.t] | nil,
-    :code => String.t | nil
-  }
+          :data => [FinnhubAPI.Model.BondYieldCurveInfo.t()] | nil,
+          :code => String.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.BondYieldCurveInfo)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.BondYieldCurveInfo)
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.RevenueEstimatesInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,20 +18,19 @@ defmodule FinnhubAPI.Model.RevenueEstimatesInfo do
   ]
 
   @type t :: %__MODULE__{
-    :revenueAvg => float() | nil,
-    :revenueHigh => float() | nil,
-    :revenueLow => float() | nil,
-    :numberAnalysts => integer() | nil,
-    :period => Date.t | nil,
-    :year => integer() | nil,
-    :quarter => integer() | nil
-  }
+          :revenueAvg => float() | nil,
+          :revenueHigh => float() | nil,
+          :revenueLow => float() | nil,
+          :numberAnalysts => integer() | nil,
+          :period => Date.t() | nil,
+          :year => integer() | nil,
+          :quarter => integer() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:period, :date, nil)
+    |> Deserializer.deserialize(:period, :date, nil)
   end
 end
-

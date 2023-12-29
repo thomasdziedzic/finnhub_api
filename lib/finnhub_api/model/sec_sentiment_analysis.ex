@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SecSentimentAnalysis do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,17 +15,16 @@ defmodule FinnhubAPI.Model.SecSentimentAnalysis do
   ]
 
   @type t :: %__MODULE__{
-    :accessNumber => String.t | nil,
-    :symbol => String.t | nil,
-    :cik => String.t | nil,
-    :sentiment => FinnhubAPI.Model.FilingSentiment.t | nil
-  }
+          :accessNumber => String.t() | nil,
+          :symbol => String.t() | nil,
+          :cik => String.t() | nil,
+          :sentiment => FinnhubAPI.Model.FilingSentiment.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:sentiment, :struct, FinnhubAPI.Model.FilingSentiment)
+    |> Deserializer.deserialize(:sentiment, :struct, FinnhubAPI.Model.FilingSentiment)
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyExecutive do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.CompanyExecutive do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :executive => [FinnhubAPI.Model.Company.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :executive => [FinnhubAPI.Model.Company.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:executive, :list, FinnhubAPI.Model.Company)
+    |> Deserializer.deserialize(:executive, :list, FinnhubAPI.Model.Company)
   end
 end
-

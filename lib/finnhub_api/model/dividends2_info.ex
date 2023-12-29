@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Dividends2Info do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.Dividends2Info do
   ]
 
   @type t :: %__MODULE__{
-    :exDate => Date.t | nil,
-    :amount => float() | nil
-  }
+          :exDate => Date.t() | nil,
+          :amount => float() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:exDate, :date, nil)
+    |> Deserializer.deserialize(:exDate, :date, nil)
   end
 end
-

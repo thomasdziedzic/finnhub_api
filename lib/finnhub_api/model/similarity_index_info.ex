@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SimilarityIndexInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -23,22 +23,21 @@ defmodule FinnhubAPI.Model.SimilarityIndexInfo do
   ]
 
   @type t :: %__MODULE__{
-    :cik => String.t | nil,
-    :item1 => float() | nil,
-    :item1a => float() | nil,
-    :item2 => float() | nil,
-    :item7 => float() | nil,
-    :item7a => float() | nil,
-    :accessNumber => String.t | nil,
-    :form => String.t | nil,
-    :filedDate => String.t | nil,
-    :acceptedDate => String.t | nil,
-    :reportUrl => String.t | nil,
-    :filingUrl => String.t | nil
-  }
+          :cik => String.t() | nil,
+          :item1 => float() | nil,
+          :item1a => float() | nil,
+          :item2 => float() | nil,
+          :item7 => float() | nil,
+          :item7a => float() | nil,
+          :accessNumber => String.t() | nil,
+          :form => String.t() | nil,
+          :filedDate => String.t() | nil,
+          :acceptedDate => String.t() | nil,
+          :reportUrl => String.t() | nil,
+          :filingUrl => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

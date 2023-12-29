@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.MarketStatus do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,16 +17,15 @@ defmodule FinnhubAPI.Model.MarketStatus do
   ]
 
   @type t :: %__MODULE__{
-    :exchange => String.t | nil,
-    :timezone => String.t | nil,
-    :session => String.t | nil,
-    :holiday => String.t | nil,
-    :isOpen => boolean() | nil,
-    :t => integer() | nil
-  }
+          :exchange => String.t() | nil,
+          :timezone => String.t() | nil,
+          :session => String.t() | nil,
+          :holiday => String.t() | nil,
+          :isOpen => boolean() | nil,
+          :t => integer() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

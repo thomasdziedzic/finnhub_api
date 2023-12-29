@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SentimentContent do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,17 +18,16 @@ defmodule FinnhubAPI.Model.SentimentContent do
   ]
 
   @type t :: %__MODULE__{
-    :mention => integer() | nil,
-    :positiveMention => integer() | nil,
-    :negativeMention => integer() | nil,
-    :positiveScore => float() | nil,
-    :negativeScore => float() | nil,
-    :score => float() | nil,
-    :atTime => String.t | nil
-  }
+          :mention => integer() | nil,
+          :positiveMention => integer() | nil,
+          :negativeMention => integer() | nil,
+          :positiveScore => float() | nil,
+          :negativeScore => float() | nil,
+          :score => float() | nil,
+          :atTime => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

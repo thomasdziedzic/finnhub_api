@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.IndicesConstituentsBreakdown do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,16 +17,15 @@ defmodule FinnhubAPI.Model.IndicesConstituentsBreakdown do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :name => String.t | nil,
-    :isin => String.t | nil,
-    :cusip => String.t | nil,
-    :shareClassFIGI => String.t | nil,
-    :weight => float() | nil
-  }
+          :symbol => String.t() | nil,
+          :name => String.t() | nil,
+          :isin => String.t() | nil,
+          :cusip => String.t() | nil,
+          :shareClassFIGI => String.t() | nil,
+          :weight => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

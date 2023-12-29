@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InvestmentThemes do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.InvestmentThemes do
   ]
 
   @type t :: %__MODULE__{
-    :theme => String.t | nil,
-    :data => [FinnhubAPI.Model.InvestmentThemePortfolio.t] | nil
-  }
+          :theme => String.t() | nil,
+          :data => [FinnhubAPI.Model.InvestmentThemePortfolio.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.InvestmentThemePortfolio)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.InvestmentThemePortfolio)
   end
 end
-

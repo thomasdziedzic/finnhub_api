@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Sentiment do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.Sentiment do
   ]
 
   @type t :: %__MODULE__{
-    :bearishPercent => float() | nil,
-    :bullishPercent => float() | nil
-  }
+          :bearishPercent => float() | nil,
+          :bullishPercent => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.PriceTarget do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,17 +18,16 @@ defmodule FinnhubAPI.Model.PriceTarget do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :targetHigh => float() | nil,
-    :targetLow => float() | nil,
-    :targetMean => float() | nil,
-    :targetMedian => float() | nil,
-    :numberAnalysts => integer() | nil,
-    :lastUpdated => String.t | nil
-  }
+          :symbol => String.t() | nil,
+          :targetHigh => float() | nil,
+          :targetLow => float() | nil,
+          :targetMean => float() | nil,
+          :targetMedian => float() | nil,
+          :numberAnalysts => integer() | nil,
+          :lastUpdated => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.KeyCustomersSuppliers do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -23,22 +23,21 @@ defmodule FinnhubAPI.Model.KeyCustomersSuppliers do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :name => String.t | nil,
-    :country => String.t | nil,
-    :industry => String.t | nil,
-    :customer => boolean() | nil,
-    :supplier => boolean() | nil,
-    :oneMonthCorrelation => float() | nil,
-    :oneYearCorrelation => float() | nil,
-    :sixMonthCorrelation => float() | nil,
-    :threeMonthCorrelation => float() | nil,
-    :twoWeekCorrelation => float() | nil,
-    :twoYearCorrelation => float() | nil
-  }
+          :symbol => String.t() | nil,
+          :name => String.t() | nil,
+          :country => String.t() | nil,
+          :industry => String.t() | nil,
+          :customer => boolean() | nil,
+          :supplier => boolean() | nil,
+          :oneMonthCorrelation => float() | nil,
+          :oneYearCorrelation => float() | nil,
+          :sixMonthCorrelation => float() | nil,
+          :threeMonthCorrelation => float() | nil,
+          :twoWeekCorrelation => float() | nil,
+          :twoYearCorrelation => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Dividends do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -20,25 +20,24 @@ defmodule FinnhubAPI.Model.Dividends do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :date => Date.t | nil,
-    :amount => float() | nil,
-    :adjustedAmount => float() | nil,
-    :payDate => Date.t | nil,
-    :recordDate => Date.t | nil,
-    :declarationDate => Date.t | nil,
-    :currency => String.t | nil,
-    :freq => String.t | nil
-  }
+          :symbol => String.t() | nil,
+          :date => Date.t() | nil,
+          :amount => float() | nil,
+          :adjustedAmount => float() | nil,
+          :payDate => Date.t() | nil,
+          :recordDate => Date.t() | nil,
+          :declarationDate => Date.t() | nil,
+          :currency => String.t() | nil,
+          :freq => String.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:date, :date, nil)
-     |> Deserializer.deserialize(:payDate, :date, nil)
-     |> Deserializer.deserialize(:recordDate, :date, nil)
-     |> Deserializer.deserialize(:declarationDate, :date, nil)
+    |> Deserializer.deserialize(:date, :date, nil)
+    |> Deserializer.deserialize(:payDate, :date, nil)
+    |> Deserializer.deserialize(:recordDate, :date, nil)
+    |> Deserializer.deserialize(:declarationDate, :date, nil)
   end
 end
-

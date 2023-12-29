@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.PressRelease do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.PressRelease do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :majorDevelopment => [FinnhubAPI.Model.Development.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :majorDevelopment => [FinnhubAPI.Model.Development.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:majorDevelopment, :list, FinnhubAPI.Model.Development)
+    |> Deserializer.deserialize(:majorDevelopment, :list, FinnhubAPI.Model.Development)
   end
 end
-

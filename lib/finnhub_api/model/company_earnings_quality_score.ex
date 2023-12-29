@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyEarningsQualityScore do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,16 +14,15 @@ defmodule FinnhubAPI.Model.CompanyEarningsQualityScore do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :freq => String.t | nil,
-    :data => [FinnhubAPI.Model.CompanyEarningsQualityScoreData.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :freq => String.t() | nil,
+          :data => [FinnhubAPI.Model.CompanyEarningsQualityScoreData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.CompanyEarningsQualityScoreData)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.CompanyEarningsQualityScoreData)
   end
 end
-

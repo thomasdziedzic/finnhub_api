@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyProfile2 do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -23,25 +23,24 @@ defmodule FinnhubAPI.Model.CompanyProfile2 do
   ]
 
   @type t :: %__MODULE__{
-    :country => String.t | nil,
-    :currency => String.t | nil,
-    :exchange => String.t | nil,
-    :name => String.t | nil,
-    :ticker => String.t | nil,
-    :ipo => Date.t | nil,
-    :marketCapitalization => float() | nil,
-    :shareOutstanding => float() | nil,
-    :logo => String.t | nil,
-    :phone => String.t | nil,
-    :weburl => String.t | nil,
-    :finnhubIndustry => String.t | nil
-  }
+          :country => String.t() | nil,
+          :currency => String.t() | nil,
+          :exchange => String.t() | nil,
+          :name => String.t() | nil,
+          :ticker => String.t() | nil,
+          :ipo => Date.t() | nil,
+          :marketCapitalization => float() | nil,
+          :shareOutstanding => float() | nil,
+          :logo => String.t() | nil,
+          :phone => String.t() | nil,
+          :weburl => String.t() | nil,
+          :finnhubIndustry => String.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:ipo, :date, nil)
+    |> Deserializer.deserialize(:ipo, :date, nil)
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SymbolChangeInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,13 +14,12 @@ defmodule FinnhubAPI.Model.SymbolChangeInfo do
   ]
 
   @type t :: %__MODULE__{
-    :atDate => String.t | nil,
-    :oldSymbol => String.t | nil,
-    :newSymbol => String.t | nil
-  }
+          :atDate => String.t() | nil,
+          :oldSymbol => String.t() | nil,
+          :newSymbol => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.StockSymbol do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -21,20 +21,19 @@ defmodule FinnhubAPI.Model.StockSymbol do
   ]
 
   @type t :: %__MODULE__{
-    :description => String.t | nil,
-    :displaySymbol => String.t | nil,
-    :symbol => String.t | nil,
-    :type => String.t | nil,
-    :mic => String.t | nil,
-    :figi => String.t | nil,
-    :shareClassFIGI => String.t | nil,
-    :currency => String.t | nil,
-    :symbol2 => String.t | nil,
-    :isin => String.t | nil
-  }
+          :description => String.t() | nil,
+          :displaySymbol => String.t() | nil,
+          :symbol => String.t() | nil,
+          :type => String.t() | nil,
+          :mic => String.t() | nil,
+          :figi => String.t() | nil,
+          :shareClassFIGI => String.t() | nil,
+          :currency => String.t() | nil,
+          :symbol2 => String.t() | nil,
+          :isin => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

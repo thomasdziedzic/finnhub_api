@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.UsaSpending do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -31,30 +31,29 @@ defmodule FinnhubAPI.Model.UsaSpending do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :recipientName => String.t | nil,
-    :recipientParentName => String.t | nil,
-    :awardDescription => String.t | nil,
-    :country => String.t | nil,
-    :actionDate => String.t | nil,
-    :totalValue => float() | nil,
-    :performanceStartDate => String.t | nil,
-    :performanceEndDate => String.t | nil,
-    :awardingAgencyName => String.t | nil,
-    :awardingSubAgencyName => String.t | nil,
-    :awardingOfficeName => String.t | nil,
-    :performanceCountry => String.t | nil,
-    :performanceCity => String.t | nil,
-    :performanceCounty => String.t | nil,
-    :performanceState => String.t | nil,
-    :performanceZipCode => String.t | nil,
-    :performanceCongressionalDistrict => String.t | nil,
-    :naicsCode => String.t | nil,
-    :permalink => String.t | nil
-  }
+          :symbol => String.t() | nil,
+          :recipientName => String.t() | nil,
+          :recipientParentName => String.t() | nil,
+          :awardDescription => String.t() | nil,
+          :country => String.t() | nil,
+          :actionDate => String.t() | nil,
+          :totalValue => float() | nil,
+          :performanceStartDate => String.t() | nil,
+          :performanceEndDate => String.t() | nil,
+          :awardingAgencyName => String.t() | nil,
+          :awardingSubAgencyName => String.t() | nil,
+          :awardingOfficeName => String.t() | nil,
+          :performanceCountry => String.t() | nil,
+          :performanceCity => String.t() | nil,
+          :performanceCounty => String.t() | nil,
+          :performanceState => String.t() | nil,
+          :performanceZipCode => String.t() | nil,
+          :performanceCongressionalDistrict => String.t() | nil,
+          :naicsCode => String.t() | nil,
+          :permalink => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

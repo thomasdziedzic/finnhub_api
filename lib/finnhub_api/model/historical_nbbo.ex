@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.HistoricalNbbo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -23,22 +23,21 @@ defmodule FinnhubAPI.Model.HistoricalNbbo do
   ]
 
   @type t :: %__MODULE__{
-    :s => String.t | nil,
-    :skip => integer() | nil,
-    :count => integer() | nil,
-    :total => integer() | nil,
-    :av => [float()] | nil,
-    :a => [float()] | nil,
-    :ax => [String.t] | nil,
-    :bv => [float()] | nil,
-    :b => [float()] | nil,
-    :bx => [String.t] | nil,
-    :t => [integer()] | nil,
-    :c => [[String.t]] | nil
-  }
+          :s => String.t() | nil,
+          :skip => integer() | nil,
+          :count => integer() | nil,
+          :total => integer() | nil,
+          :av => [float()] | nil,
+          :a => [float()] | nil,
+          :ax => [String.t()] | nil,
+          :bv => [float()] | nil,
+          :b => [float()] | nil,
+          :bx => [String.t()] | nil,
+          :t => [integer()] | nil,
+          :c => [[String.t()]] | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

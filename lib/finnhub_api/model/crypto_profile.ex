@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CryptoProfile do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -22,21 +22,20 @@ defmodule FinnhubAPI.Model.CryptoProfile do
   ]
 
   @type t :: %__MODULE__{
-    :longName => String.t | nil,
-    :name => String.t | nil,
-    :description => String.t | nil,
-    :website => String.t | nil,
-    :marketCap => float() | nil,
-    :totalSupply => float() | nil,
-    :maxSupply => float() | nil,
-    :circulatingSupply => float() | nil,
-    :logo => String.t | nil,
-    :launchDate => String.t | nil,
-    :proofType => String.t | nil
-  }
+          :longName => String.t() | nil,
+          :name => String.t() | nil,
+          :description => String.t() | nil,
+          :website => String.t() | nil,
+          :marketCap => float() | nil,
+          :totalSupply => float() | nil,
+          :maxSupply => float() | nil,
+          :circulatingSupply => float() | nil,
+          :logo => String.t() | nil,
+          :launchDate => String.t() | nil,
+          :proofType => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

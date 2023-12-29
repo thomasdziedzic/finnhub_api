@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Report do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -22,21 +22,20 @@ defmodule FinnhubAPI.Model.Report do
   ]
 
   @type t :: %__MODULE__{
-    :accessNumber => String.t | nil,
-    :symbol => String.t | nil,
-    :cik => String.t | nil,
-    :year => integer() | nil,
-    :quarter => integer() | nil,
-    :form => String.t | nil,
-    :startDate => String.t | nil,
-    :endDate => String.t | nil,
-    :filedDate => String.t | nil,
-    :acceptedDate => String.t | nil,
-    :report => map() | nil
-  }
+          :accessNumber => String.t() | nil,
+          :symbol => String.t() | nil,
+          :cik => String.t() | nil,
+          :year => integer() | nil,
+          :quarter => integer() | nil,
+          :form => String.t() | nil,
+          :startDate => String.t() | nil,
+          :endDate => String.t() | nil,
+          :filedDate => String.t() | nil,
+          :acceptedDate => String.t() | nil,
+          :report => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

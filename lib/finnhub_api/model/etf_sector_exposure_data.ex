@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EtfSectorExposureData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.EtfSectorExposureData do
   ]
 
   @type t :: %__MODULE__{
-    :industry => String.t | nil,
-    :exposure => float() | nil
-  }
+          :industry => String.t() | nil,
+          :exposure => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

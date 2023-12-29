@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CountryMetadata do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -23,22 +23,21 @@ defmodule FinnhubAPI.Model.CountryMetadata do
   ]
 
   @type t :: %__MODULE__{
-    :country => String.t | nil,
-    :code2 => String.t | nil,
-    :code3 => String.t | nil,
-    :codeNo => String.t | nil,
-    :currency => String.t | nil,
-    :currencyCode => String.t | nil,
-    :region => String.t | nil,
-    :subRegion => String.t | nil,
-    :rating => String.t | nil,
-    :defaultSpread => float() | nil,
-    :countryRiskPremium => float() | nil,
-    :equityRiskPremium => float() | nil
-  }
+          :country => String.t() | nil,
+          :code2 => String.t() | nil,
+          :code3 => String.t() | nil,
+          :codeNo => String.t() | nil,
+          :currency => String.t() | nil,
+          :currencyCode => String.t() | nil,
+          :region => String.t() | nil,
+          :subRegion => String.t() | nil,
+          :rating => String.t() | nil,
+          :defaultSpread => float() | nil,
+          :countryRiskPremium => float() | nil,
+          :equityRiskPremium => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

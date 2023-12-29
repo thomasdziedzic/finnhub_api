@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.BasicFinancials do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,14 +15,13 @@ defmodule FinnhubAPI.Model.BasicFinancials do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :metricType => String.t | nil,
-    :series => map() | nil,
-    :metric => map() | nil
-  }
+          :symbol => String.t() | nil,
+          :metricType => String.t() | nil,
+          :series => map() | nil,
+          :metric => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

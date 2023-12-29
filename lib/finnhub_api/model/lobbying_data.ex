@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.LobbyingData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -26,25 +26,24 @@ defmodule FinnhubAPI.Model.LobbyingData do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :name => String.t | nil,
-    :description => String.t | nil,
-    :country => String.t | nil,
-    :year => integer() | nil,
-    :period => String.t | nil,
-    :income => float() | nil,
-    :expenses => float() | nil,
-    :documentUrl => String.t | nil,
-    :postedName => String.t | nil,
-    :date => String.t | nil,
-    :clientId => String.t | nil,
-    :registrantId => String.t | nil,
-    :senateId => String.t | nil,
-    :houseregistrantId => String.t | nil
-  }
+          :symbol => String.t() | nil,
+          :name => String.t() | nil,
+          :description => String.t() | nil,
+          :country => String.t() | nil,
+          :year => integer() | nil,
+          :period => String.t() | nil,
+          :income => float() | nil,
+          :expenses => float() | nil,
+          :documentUrl => String.t() | nil,
+          :postedName => String.t() | nil,
+          :date => String.t() | nil,
+          :clientId => String.t() | nil,
+          :registrantId => String.t() | nil,
+          :senateId => String.t() | nil,
+          :houseregistrantId => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

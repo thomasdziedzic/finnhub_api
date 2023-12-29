@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.VisaApplicationResult do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.VisaApplicationResult do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :data => [FinnhubAPI.Model.VisaApplication.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :data => [FinnhubAPI.Model.VisaApplication.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.VisaApplication)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.VisaApplication)
   end
 end
-

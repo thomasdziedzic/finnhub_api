@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.UpgradeDowngrade do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -17,16 +17,15 @@ defmodule FinnhubAPI.Model.UpgradeDowngrade do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :gradeTime => integer() | nil,
-    :fromGrade => String.t | nil,
-    :toGrade => String.t | nil,
-    :company => String.t | nil,
-    :action => String.t | nil
-  }
+          :symbol => String.t() | nil,
+          :gradeTime => integer() | nil,
+          :fromGrade => String.t() | nil,
+          :toGrade => String.t() | nil,
+          :company => String.t() | nil,
+          :action => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

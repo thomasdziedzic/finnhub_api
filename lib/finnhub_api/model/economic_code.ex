@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EconomicCode do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,14 +15,13 @@ defmodule FinnhubAPI.Model.EconomicCode do
   ]
 
   @type t :: %__MODULE__{
-    :code => String.t | nil,
-    :country => String.t | nil,
-    :name => String.t | nil,
-    :unit => String.t | nil
-  }
+          :code => String.t() | nil,
+          :country => String.t() | nil,
+          :name => String.t() | nil,
+          :unit => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

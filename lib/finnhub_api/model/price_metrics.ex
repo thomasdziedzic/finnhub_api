@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.PriceMetrics do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,13 +14,12 @@ defmodule FinnhubAPI.Model.PriceMetrics do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :atDate => String.t | nil,
-    :data => map() | nil
-  }
+          :symbol => String.t() | nil,
+          :atDate => String.t() | nil,
+          :data => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

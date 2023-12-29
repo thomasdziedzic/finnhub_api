@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.RecommendationTrend do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,17 +18,16 @@ defmodule FinnhubAPI.Model.RecommendationTrend do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :buy => integer() | nil,
-    :hold => integer() | nil,
-    :period => String.t | nil,
-    :sell => integer() | nil,
-    :strongBuy => integer() | nil,
-    :strongSell => integer() | nil
-  }
+          :symbol => String.t() | nil,
+          :buy => integer() | nil,
+          :hold => integer() | nil,
+          :period => String.t() | nil,
+          :sell => integer() | nil,
+          :strongBuy => integer() | nil,
+          :strongSell => integer() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

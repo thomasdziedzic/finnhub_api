@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EtfsCountryExposure do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.EtfsCountryExposure do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :countryExposure => [FinnhubAPI.Model.EtfCountryExposureData.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :countryExposure => [FinnhubAPI.Model.EtfCountryExposureData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:countryExposure, :list, FinnhubAPI.Model.EtfCountryExposureData)
+    |> Deserializer.deserialize(:countryExposure, :list, FinnhubAPI.Model.EtfCountryExposureData)
   end
 end
-

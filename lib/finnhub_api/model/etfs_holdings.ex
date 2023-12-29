@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EtfsHoldings do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,18 +15,17 @@ defmodule FinnhubAPI.Model.EtfsHoldings do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :atDate => Date.t | nil,
-    :numberOfHoldings => integer() | nil,
-    :holdings => [FinnhubAPI.Model.EtfHoldingsData.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :atDate => Date.t() | nil,
+          :numberOfHoldings => integer() | nil,
+          :holdings => [FinnhubAPI.Model.EtfHoldingsData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:atDate, :date, nil)
-     |> Deserializer.deserialize(:holdings, :list, FinnhubAPI.Model.EtfHoldingsData)
+    |> Deserializer.deserialize(:atDate, :date, nil)
+    |> Deserializer.deserialize(:holdings, :list, FinnhubAPI.Model.EtfHoldingsData)
   end
 end
-

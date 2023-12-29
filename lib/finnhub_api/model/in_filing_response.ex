@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InFilingResponse do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -25,27 +25,26 @@ defmodule FinnhubAPI.Model.InFilingResponse do
   ]
 
   @type t :: %__MODULE__{
-    :filingId => String.t | nil,
-    :title => String.t | nil,
-    :filerId => String.t | nil,
-    :symbol => map() | nil,
-    :name => String.t | nil,
-    :acceptanceDate => String.t | nil,
-    :filedDate => String.t | nil,
-    :reportDate => String.t | nil,
-    :form => String.t | nil,
-    :amend => boolean() | nil,
-    :source => String.t | nil,
-    :pageCount => integer() | nil,
-    :documentCount => integer() | nil,
-    :documents => [FinnhubAPI.Model.DocumentResponse.t] | nil
-  }
+          :filingId => String.t() | nil,
+          :title => String.t() | nil,
+          :filerId => String.t() | nil,
+          :symbol => map() | nil,
+          :name => String.t() | nil,
+          :acceptanceDate => String.t() | nil,
+          :filedDate => String.t() | nil,
+          :reportDate => String.t() | nil,
+          :form => String.t() | nil,
+          :amend => boolean() | nil,
+          :source => String.t() | nil,
+          :pageCount => integer() | nil,
+          :documentCount => integer() | nil,
+          :documents => [FinnhubAPI.Model.DocumentResponse.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:documents, :list, FinnhubAPI.Model.DocumentResponse)
+    |> Deserializer.deserialize(:documents, :list, FinnhubAPI.Model.DocumentResponse)
   end
 end
-

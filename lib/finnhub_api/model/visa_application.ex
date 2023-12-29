@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.VisaApplication do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -34,33 +34,32 @@ defmodule FinnhubAPI.Model.VisaApplication do
   ]
 
   @type t :: %__MODULE__{
-    :year => integer() | nil,
-    :quarter => integer() | nil,
-    :symbol => String.t | nil,
-    :caseNumber => String.t | nil,
-    :caseStatus => String.t | nil,
-    :receivedDate => String.t | nil,
-    :visaClass => String.t | nil,
-    :jobTitle => String.t | nil,
-    :socCode => String.t | nil,
-    :fullTimePosition => String.t | nil,
-    :beginDate => String.t | nil,
-    :endDate => String.t | nil,
-    :employerName => String.t | nil,
-    :worksiteAddress => String.t | nil,
-    :worksiteCity => String.t | nil,
-    :worksiteCounty => String.t | nil,
-    :worksiteState => String.t | nil,
-    :worksitePostalCode => String.t | nil,
-    :wageRangeFrom => float() | nil,
-    :wageRangeTo => float() | nil,
-    :wageUnitOfPay => String.t | nil,
-    :wageLevel => String.t | nil,
-    :h1bDependent => String.t | nil
-  }
+          :year => integer() | nil,
+          :quarter => integer() | nil,
+          :symbol => String.t() | nil,
+          :caseNumber => String.t() | nil,
+          :caseStatus => String.t() | nil,
+          :receivedDate => String.t() | nil,
+          :visaClass => String.t() | nil,
+          :jobTitle => String.t() | nil,
+          :socCode => String.t() | nil,
+          :fullTimePosition => String.t() | nil,
+          :beginDate => String.t() | nil,
+          :endDate => String.t() | nil,
+          :employerName => String.t() | nil,
+          :worksiteAddress => String.t() | nil,
+          :worksiteCity => String.t() | nil,
+          :worksiteCounty => String.t() | nil,
+          :worksiteState => String.t() | nil,
+          :worksitePostalCode => String.t() | nil,
+          :wageRangeFrom => float() | nil,
+          :wageRangeTo => float() | nil,
+          :wageUnitOfPay => String.t() | nil,
+          :wageLevel => String.t() | nil,
+          :h1bDependent => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

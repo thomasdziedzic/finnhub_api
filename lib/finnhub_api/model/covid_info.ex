@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CovidInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,14 +15,13 @@ defmodule FinnhubAPI.Model.CovidInfo do
   ]
 
   @type t :: %__MODULE__{
-    :state => String.t | nil,
-    :case => float() | nil,
-    :death => float() | nil,
-    :updated => String.t | nil
-  }
+          :state => String.t() | nil,
+          :case => float() | nil,
+          :death => float() | nil,
+          :updated => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

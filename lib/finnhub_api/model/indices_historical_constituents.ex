@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.IndicesHistoricalConstituents do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,18 @@ defmodule FinnhubAPI.Model.IndicesHistoricalConstituents do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :historicalConstituents => [FinnhubAPI.Model.IndexHistoricalConstituent.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :historicalConstituents => [FinnhubAPI.Model.IndexHistoricalConstituent.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:historicalConstituents, :list, FinnhubAPI.Model.IndexHistoricalConstituent)
+    |> Deserializer.deserialize(
+      :historicalConstituents,
+      :list,
+      FinnhubAPI.Model.IndexHistoricalConstituent
+    )
   end
 end
-

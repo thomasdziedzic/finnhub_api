@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InsiderSentimentsData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -16,15 +16,14 @@ defmodule FinnhubAPI.Model.InsiderSentimentsData do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :year => integer() | nil,
-    :month => integer() | nil,
-    :change => integer() | nil,
-    :mspr => float() | nil
-  }
+          :symbol => String.t() | nil,
+          :year => integer() | nil,
+          :month => integer() | nil,
+          :change => integer() | nil,
+          :mspr => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

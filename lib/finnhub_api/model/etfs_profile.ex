@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EtfsProfile do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.EtfsProfile do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :profile => FinnhubAPI.Model.EtfProfileData.t | nil
-  }
+          :symbol => String.t() | nil,
+          :profile => FinnhubAPI.Model.EtfProfileData.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:profile, :struct, FinnhubAPI.Model.EtfProfileData)
+    |> Deserializer.deserialize(:profile, :struct, FinnhubAPI.Model.EtfProfileData)
   end
 end
-

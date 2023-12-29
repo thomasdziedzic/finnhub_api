@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.TickData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -20,19 +20,18 @@ defmodule FinnhubAPI.Model.TickData do
   ]
 
   @type t :: %__MODULE__{
-    :s => String.t | nil,
-    :skip => integer() | nil,
-    :count => integer() | nil,
-    :total => integer() | nil,
-    :v => [float()] | nil,
-    :p => [float()] | nil,
-    :t => [integer()] | nil,
-    :x => [String.t] | nil,
-    :c => [[String.t]] | nil
-  }
+          :s => String.t() | nil,
+          :skip => integer() | nil,
+          :count => integer() | nil,
+          :total => integer() | nil,
+          :v => [float()] | nil,
+          :p => [float()] | nil,
+          :t => [integer()] | nil,
+          :x => [String.t()] | nil,
+          :c => [[String.t()]] | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

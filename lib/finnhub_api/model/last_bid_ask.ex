@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.LastBidAsk do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -16,15 +16,14 @@ defmodule FinnhubAPI.Model.LastBidAsk do
   ]
 
   @type t :: %__MODULE__{
-    :b => float() | nil,
-    :a => float() | nil,
-    :bv => float() | nil,
-    :av => float() | nil,
-    :t => integer() | nil
-  }
+          :b => float() | nil,
+          :a => float() | nil,
+          :bv => float() | nil,
+          :av => float() | nil,
+          :t => integer() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

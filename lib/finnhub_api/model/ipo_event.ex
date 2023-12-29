@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.IpoEvent do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -19,21 +19,20 @@ defmodule FinnhubAPI.Model.IpoEvent do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :date => Date.t | nil,
-    :exchange => String.t | nil,
-    :name => String.t | nil,
-    :status => String.t | nil,
-    :price => String.t | nil,
-    :numberOfShares => float() | nil,
-    :totalSharesValue => float() | nil
-  }
+          :symbol => String.t() | nil,
+          :date => Date.t() | nil,
+          :exchange => String.t() | nil,
+          :name => String.t() | nil,
+          :status => String.t() | nil,
+          :price => String.t() | nil,
+          :numberOfShares => float() | nil,
+          :totalSharesValue => float() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:date, :date, nil)
+    |> Deserializer.deserialize(:date, :date, nil)
   end
 end
-

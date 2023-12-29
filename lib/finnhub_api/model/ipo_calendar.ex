@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.IpoCalendar do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -12,14 +12,13 @@ defmodule FinnhubAPI.Model.IpoCalendar do
   ]
 
   @type t :: %__MODULE__{
-    :ipoCalendar => [FinnhubAPI.Model.IpoEvent.t] | nil
-  }
+          :ipoCalendar => [FinnhubAPI.Model.IpoEvent.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:ipoCalendar, :list, FinnhubAPI.Model.IpoEvent)
+    |> Deserializer.deserialize(:ipoCalendar, :list, FinnhubAPI.Model.IpoEvent)
   end
 end
-

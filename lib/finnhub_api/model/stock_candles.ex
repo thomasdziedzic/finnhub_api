@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.StockCandles do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,17 +18,16 @@ defmodule FinnhubAPI.Model.StockCandles do
   ]
 
   @type t :: %__MODULE__{
-    :o => [float()] | nil,
-    :h => [float()] | nil,
-    :l => [float()] | nil,
-    :c => [float()] | nil,
-    :v => [float()] | nil,
-    :t => [integer()] | nil,
-    :s => String.t | nil
-  }
+          :o => [float()] | nil,
+          :h => [float()] | nil,
+          :l => [float()] | nil,
+          :c => [float()] | nil,
+          :v => [float()] | nil,
+          :t => [integer()] | nil,
+          :s => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SearchResponse do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,17 +15,16 @@ defmodule FinnhubAPI.Model.SearchResponse do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
-    :took => integer() | nil,
-    :page => integer() | nil,
-    :filings => [FinnhubAPI.Model.FilingResponse.t] | nil
-  }
+          :count => integer() | nil,
+          :took => integer() | nil,
+          :page => integer() | nil,
+          :filings => [FinnhubAPI.Model.FilingResponse.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:filings, :list, FinnhubAPI.Model.FilingResponse)
+    |> Deserializer.deserialize(:filings, :list, FinnhubAPI.Model.FilingResponse)
   end
 end
-

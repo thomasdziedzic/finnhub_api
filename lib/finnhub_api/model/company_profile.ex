@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CompanyProfile do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -43,45 +43,44 @@ defmodule FinnhubAPI.Model.CompanyProfile do
   ]
 
   @type t :: %__MODULE__{
-    :alias => [String.t] | nil,
-    :address => String.t | nil,
-    :city => String.t | nil,
-    :country => String.t | nil,
-    :currency => String.t | nil,
-    :estimateCurrency => String.t | nil,
-    :marketCapCurrency => String.t | nil,
-    :cusip => String.t | nil,
-    :sedol => String.t | nil,
-    :description => String.t | nil,
-    :exchange => String.t | nil,
-    :ggroup => String.t | nil,
-    :gind => String.t | nil,
-    :gsector => String.t | nil,
-    :gsubind => String.t | nil,
-    :isin => String.t | nil,
-    :lei => String.t | nil,
-    :naicsNationalIndustry => String.t | nil,
-    :naics => String.t | nil,
-    :naicsSector => String.t | nil,
-    :naicsSubsector => String.t | nil,
-    :name => String.t | nil,
-    :phone => String.t | nil,
-    :state => String.t | nil,
-    :ticker => String.t | nil,
-    :weburl => String.t | nil,
-    :ipo => Date.t | nil,
-    :marketCapitalization => float() | nil,
-    :shareOutstanding => float() | nil,
-    :employeeTotal => float() | nil,
-    :logo => String.t | nil,
-    :finnhubIndustry => String.t | nil
-  }
+          :alias => [String.t()] | nil,
+          :address => String.t() | nil,
+          :city => String.t() | nil,
+          :country => String.t() | nil,
+          :currency => String.t() | nil,
+          :estimateCurrency => String.t() | nil,
+          :marketCapCurrency => String.t() | nil,
+          :cusip => String.t() | nil,
+          :sedol => String.t() | nil,
+          :description => String.t() | nil,
+          :exchange => String.t() | nil,
+          :ggroup => String.t() | nil,
+          :gind => String.t() | nil,
+          :gsector => String.t() | nil,
+          :gsubind => String.t() | nil,
+          :isin => String.t() | nil,
+          :lei => String.t() | nil,
+          :naicsNationalIndustry => String.t() | nil,
+          :naics => String.t() | nil,
+          :naicsSector => String.t() | nil,
+          :naicsSubsector => String.t() | nil,
+          :name => String.t() | nil,
+          :phone => String.t() | nil,
+          :state => String.t() | nil,
+          :ticker => String.t() | nil,
+          :weburl => String.t() | nil,
+          :ipo => Date.t() | nil,
+          :marketCapitalization => float() | nil,
+          :shareOutstanding => float() | nil,
+          :employeeTotal => float() | nil,
+          :logo => String.t() | nil,
+          :finnhubIndustry => String.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:ipo, :date, nil)
+    |> Deserializer.deserialize(:ipo, :date, nil)
   end
 end
-

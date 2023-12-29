@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.MutualFundHoldingsData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -19,18 +19,17 @@ defmodule FinnhubAPI.Model.MutualFundHoldingsData do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :name => String.t | nil,
-    :isin => String.t | nil,
-    :cusip => String.t | nil,
-    :share => float() | nil,
-    :percent => float() | nil,
-    :value => float() | nil,
-    :assetType => String.t | nil
-  }
+          :symbol => String.t() | nil,
+          :name => String.t() | nil,
+          :isin => String.t() | nil,
+          :cusip => String.t() | nil,
+          :share => float() | nil,
+          :percent => float() | nil,
+          :value => float() | nil,
+          :assetType => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.CongressionalTransaction do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -21,20 +21,19 @@ defmodule FinnhubAPI.Model.CongressionalTransaction do
   ]
 
   @type t :: %__MODULE__{
-    :amountFrom => float() | nil,
-    :amountTo => float() | nil,
-    :assetName => String.t | nil,
-    :filingDate => String.t | nil,
-    :name => String.t | nil,
-    :ownerType => String.t | nil,
-    :position => String.t | nil,
-    :symbol => String.t | nil,
-    :transactionDate => String.t | nil,
-    :transactionType => String.t | nil
-  }
+          :amountFrom => float() | nil,
+          :amountTo => float() | nil,
+          :assetName => String.t() | nil,
+          :filingDate => String.t() | nil,
+          :name => String.t() | nil,
+          :ownerType => String.t() | nil,
+          :position => String.t() | nil,
+          :symbol => String.t() | nil,
+          :transactionDate => String.t() | nil,
+          :transactionType => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

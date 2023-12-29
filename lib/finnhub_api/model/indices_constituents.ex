@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.IndicesConstituents do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,16 +14,19 @@ defmodule FinnhubAPI.Model.IndicesConstituents do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :constituents => [String.t] | nil,
-    :constituentsBreakdown => [FinnhubAPI.Model.IndicesConstituentsBreakdown.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :constituents => [String.t()] | nil,
+          :constituentsBreakdown => [FinnhubAPI.Model.IndicesConstituentsBreakdown.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:constituentsBreakdown, :list, FinnhubAPI.Model.IndicesConstituentsBreakdown)
+    |> Deserializer.deserialize(
+      :constituentsBreakdown,
+      :list,
+      FinnhubAPI.Model.IndicesConstituentsBreakdown
+    )
   end
 end
-

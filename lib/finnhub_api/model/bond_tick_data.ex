@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.BondTickData do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -23,22 +23,21 @@ defmodule FinnhubAPI.Model.BondTickData do
   ]
 
   @type t :: %__MODULE__{
-    :skip => integer() | nil,
-    :count => integer() | nil,
-    :total => integer() | nil,
-    :v => [float()] | nil,
-    :p => [float()] | nil,
-    :y => [float()] | nil,
-    :t => [integer()] | nil,
-    :si => [String.t] | nil,
-    :cp => [String.t] | nil,
-    :rp => [String.t] | nil,
-    :ats => [String.t] | nil,
-    :c => [[String.t]] | nil
-  }
+          :skip => integer() | nil,
+          :count => integer() | nil,
+          :total => integer() | nil,
+          :v => [float()] | nil,
+          :p => [float()] | nil,
+          :y => [float()] | nil,
+          :t => [integer()] | nil,
+          :si => [String.t()] | nil,
+          :cp => [String.t()] | nil,
+          :rp => [String.t()] | nil,
+          :ats => [String.t()] | nil,
+          :c => [[String.t()]] | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

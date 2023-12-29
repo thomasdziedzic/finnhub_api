@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.FilingResponse do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -24,23 +24,22 @@ defmodule FinnhubAPI.Model.FilingResponse do
   ]
 
   @type t :: %__MODULE__{
-    :filingId => String.t | nil,
-    :title => String.t | nil,
-    :filerId => String.t | nil,
-    :symbol => map() | nil,
-    :name => String.t | nil,
-    :acceptanceDate => String.t | nil,
-    :filedDate => String.t | nil,
-    :reportDate => String.t | nil,
-    :form => String.t | nil,
-    :amend => boolean() | nil,
-    :source => String.t | nil,
-    :pageCount => integer() | nil,
-    :documentCount => integer() | nil
-  }
+          :filingId => String.t() | nil,
+          :title => String.t() | nil,
+          :filerId => String.t() | nil,
+          :symbol => map() | nil,
+          :name => String.t() | nil,
+          :acceptanceDate => String.t() | nil,
+          :filedDate => String.t() | nil,
+          :reportDate => String.t() | nil,
+          :form => String.t() | nil,
+          :amend => boolean() | nil,
+          :source => String.t() | nil,
+          :pageCount => integer() | nil,
+          :documentCount => integer() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

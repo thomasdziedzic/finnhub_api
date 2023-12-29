@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.FundOwnershipInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -16,18 +16,17 @@ defmodule FinnhubAPI.Model.FundOwnershipInfo do
   ]
 
   @type t :: %__MODULE__{
-    :name => String.t | nil,
-    :share => integer() | nil,
-    :change => integer() | nil,
-    :filingDate => Date.t | nil,
-    :portfolioPercent => float() | nil
-  }
+          :name => String.t() | nil,
+          :share => integer() | nil,
+          :change => integer() | nil,
+          :filingDate => Date.t() | nil,
+          :portfolioPercent => float() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:filingDate, :date, nil)
+    |> Deserializer.deserialize(:filingDate, :date, nil)
   end
 end
-

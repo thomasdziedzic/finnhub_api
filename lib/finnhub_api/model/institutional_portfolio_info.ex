@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InstitutionalPortfolioInfo do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -22,21 +22,20 @@ defmodule FinnhubAPI.Model.InstitutionalPortfolioInfo do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :cusip => String.t | nil,
-    :name => String.t | nil,
-    :putCall => String.t | nil,
-    :change => float() | nil,
-    :noVoting => float() | nil,
-    :percentage => float() | nil,
-    :share => float() | nil,
-    :sharedVoting => float() | nil,
-    :soleVoting => float() | nil,
-    :value => float() | nil
-  }
+          :symbol => String.t() | nil,
+          :cusip => String.t() | nil,
+          :name => String.t() | nil,
+          :putCall => String.t() | nil,
+          :change => float() | nil,
+          :noVoting => float() | nil,
+          :percentage => float() | nil,
+          :share => float() | nil,
+          :sharedVoting => float() | nil,
+          :soleVoting => float() | nil,
+          :value => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

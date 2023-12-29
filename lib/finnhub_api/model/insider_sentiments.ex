@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InsiderSentiments do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.InsiderSentiments do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :data => [FinnhubAPI.Model.InsiderSentimentsData.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :data => [FinnhubAPI.Model.InsiderSentimentsData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.InsiderSentimentsData)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.InsiderSentimentsData)
   end
 end
-

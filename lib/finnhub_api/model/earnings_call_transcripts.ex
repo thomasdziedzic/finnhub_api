@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EarningsCallTranscripts do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -20,23 +20,22 @@ defmodule FinnhubAPI.Model.EarningsCallTranscripts do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :transcript => [FinnhubAPI.Model.TranscriptContent.t] | nil,
-    :participant => [FinnhubAPI.Model.TranscriptParticipant.t] | nil,
-    :audio => String.t | nil,
-    :id => String.t | nil,
-    :title => String.t | nil,
-    :time => String.t | nil,
-    :year => integer() | nil,
-    :quarter => integer() | nil
-  }
+          :symbol => String.t() | nil,
+          :transcript => [FinnhubAPI.Model.TranscriptContent.t()] | nil,
+          :participant => [FinnhubAPI.Model.TranscriptParticipant.t()] | nil,
+          :audio => String.t() | nil,
+          :id => String.t() | nil,
+          :title => String.t() | nil,
+          :time => String.t() | nil,
+          :year => integer() | nil,
+          :quarter => integer() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:transcript, :list, FinnhubAPI.Model.TranscriptContent)
-     |> Deserializer.deserialize(:participant, :list, FinnhubAPI.Model.TranscriptParticipant)
+    |> Deserializer.deserialize(:transcript, :list, FinnhubAPI.Model.TranscriptContent)
+    |> Deserializer.deserialize(:participant, :list, FinnhubAPI.Model.TranscriptParticipant)
   end
 end
-

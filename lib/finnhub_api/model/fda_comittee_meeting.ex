@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.FdaComitteeMeeting do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,14 +15,13 @@ defmodule FinnhubAPI.Model.FdaComitteeMeeting do
   ]
 
   @type t :: %__MODULE__{
-    :fromDate => String.t | nil,
-    :toDate => String.t | nil,
-    :eventDescription => String.t | nil,
-    :url => String.t | nil
-  }
+          :fromDate => String.t() | nil,
+          :toDate => String.t() | nil,
+          :eventDescription => String.t() | nil,
+          :url => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

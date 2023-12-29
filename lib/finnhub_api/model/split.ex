@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Split do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,17 +15,16 @@ defmodule FinnhubAPI.Model.Split do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :date => Date.t | nil,
-    :fromFactor => float() | nil,
-    :toFactor => float() | nil
-  }
+          :symbol => String.t() | nil,
+          :date => Date.t() | nil,
+          :fromFactor => float() | nil,
+          :toFactor => float() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:date, :date, nil)
+    |> Deserializer.deserialize(:date, :date, nil)
   end
 end
-

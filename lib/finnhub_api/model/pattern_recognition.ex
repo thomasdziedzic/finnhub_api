@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.PatternRecognition do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -12,11 +12,10 @@ defmodule FinnhubAPI.Model.PatternRecognition do
   ]
 
   @type t :: %__MODULE__{
-    :points => [FinnhubAPI.Model.Map.t] | nil
-  }
+          :points => [FinnhubAPI.Model.Map.t()] | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

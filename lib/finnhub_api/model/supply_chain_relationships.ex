@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SupplyChainRelationships do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.SupplyChainRelationships do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :data => [FinnhubAPI.Model.KeyCustomersSuppliers.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :data => [FinnhubAPI.Model.KeyCustomersSuppliers.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.KeyCustomersSuppliers)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.KeyCustomersSuppliers)
   end
 end
-

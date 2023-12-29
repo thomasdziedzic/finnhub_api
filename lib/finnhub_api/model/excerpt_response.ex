@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.ExcerptResponse do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -15,14 +15,13 @@ defmodule FinnhubAPI.Model.ExcerptResponse do
   ]
 
   @type t :: %__MODULE__{
-    :content => String.t | nil,
-    :snippetId => String.t | nil,
-    :startOffset => String.t | nil,
-    :endOffset => String.t | nil
-  }
+          :content => String.t() | nil,
+          :snippetId => String.t() | nil,
+          :startOffset => String.t() | nil,
+          :endOffset => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

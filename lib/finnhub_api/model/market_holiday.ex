@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.MarketHoliday do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,16 +14,15 @@ defmodule FinnhubAPI.Model.MarketHoliday do
   ]
 
   @type t :: %__MODULE__{
-    :timezone => String.t | nil,
-    :exchange => String.t | nil,
-    :data => [FinnhubAPI.Model.MarketHolidayData.t] | nil
-  }
+          :timezone => String.t() | nil,
+          :exchange => String.t() | nil,
+          :data => [FinnhubAPI.Model.MarketHolidayData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.MarketHolidayData)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.MarketHolidayData)
   end
 end
-

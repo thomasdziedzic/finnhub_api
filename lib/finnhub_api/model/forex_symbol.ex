@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.ForexSymbol do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,13 +14,12 @@ defmodule FinnhubAPI.Model.ForexSymbol do
   ]
 
   @type t :: %__MODULE__{
-    :description => String.t | nil,
-    :displaySymbol => String.t | nil,
-    :symbol => String.t | nil
-  }
+          :description => String.t() | nil,
+          :displaySymbol => String.t() | nil,
+          :symbol => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

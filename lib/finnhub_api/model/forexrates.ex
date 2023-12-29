@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Forexrates do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.Forexrates do
   ]
 
   @type t :: %__MODULE__{
-    :base => String.t | nil,
-    :quote => map() | nil
-  }
+          :base => String.t() | nil,
+          :quote => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

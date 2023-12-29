@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.LobbyingResult do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.LobbyingResult do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :data => [FinnhubAPI.Model.LobbyingData.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :data => [FinnhubAPI.Model.LobbyingData.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.LobbyingData)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.LobbyingData)
   end
 end
-

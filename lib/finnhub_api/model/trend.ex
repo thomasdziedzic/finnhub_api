@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Trend do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.Trend do
   ]
 
   @type t :: %__MODULE__{
-    :adx => float() | nil,
-    :trending => boolean() | nil
-  }
+          :adx => float() | nil,
+          :trending => boolean() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

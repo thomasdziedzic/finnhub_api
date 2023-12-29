@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InFilingSearchBody do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.InFilingSearchBody do
   ]
 
   @type t :: %__MODULE__{
-    :query => String.t,
-    :filingId => String.t
-  }
+          :query => String.t(),
+          :filingId => String.t()
+        }
 
   def decode(value) do
     value
   end
 end
-

@@ -25,7 +25,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.AggregateIndicators.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec aggregate_indicator(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.AggregateIndicators.t} | {:error, Tesla.Env.t}
+  @spec aggregate_indicator(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.AggregateIndicators.t()} | {:error, Tesla.Env.t()}
   def aggregate_indicator(connection, symbol, resolution, _opts \\ []) do
     request =
       %{}
@@ -59,7 +60,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.BondCandles.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec bond_price(Tesla.Env.client, String.t, integer(), integer(), keyword()) :: {:ok, FinnhubAPI.Model.BondCandles.t} | {:error, Tesla.Env.t}
+  @spec bond_price(Tesla.Env.client(), String.t(), integer(), integer(), keyword()) ::
+          {:ok, FinnhubAPI.Model.BondCandles.t()} | {:error, Tesla.Env.t()}
   def bond_price(connection, isin, from, to, _opts \\ []) do
     request =
       %{}
@@ -94,7 +96,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.BondProfile.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec bond_profile(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.BondProfile.t} | {:error, Tesla.Env.t}
+  @spec bond_profile(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.BondProfile.t()} | {:error, Tesla.Env.t()}
   def bond_profile(connection, opts \\ []) do
     optional_params = %{
       :isin => :query,
@@ -135,7 +138,15 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.BondTickData.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec bond_tick(Tesla.Env.client, String.t, Date.t, integer(), integer(), String.t, keyword()) :: {:ok, FinnhubAPI.Model.BondTickData.t} | {:error, Tesla.Env.t}
+  @spec bond_tick(
+          Tesla.Env.client(),
+          String.t(),
+          Date.t(),
+          integer(),
+          integer(),
+          String.t(),
+          keyword()
+        ) :: {:ok, FinnhubAPI.Model.BondTickData.t()} | {:error, Tesla.Env.t()}
   def bond_tick(connection, isin, date, limit, skip, exchange, _opts \\ []) do
     request =
       %{}
@@ -170,7 +181,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.BondYieldCurve.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec bond_yield_curve(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.BondYieldCurve.t} | {:error, Tesla.Env.t}
+  @spec bond_yield_curve(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.BondYieldCurve.t()} | {:error, Tesla.Env.t()}
   def bond_yield_curve(connection, code, _opts \\ []) do
     request =
       %{}
@@ -202,7 +214,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.BasicFinancials.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_basic_financials(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.BasicFinancials.t} | {:error, Tesla.Env.t}
+  @spec company_basic_financials(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.BasicFinancials.t()} | {:error, Tesla.Env.t()}
   def company_basic_financials(connection, symbol, metric, _opts \\ []) do
     request =
       %{}
@@ -235,7 +248,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%EarningResult{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_earnings(Tesla.Env.client, String.t, keyword()) :: {:ok, list(FinnhubAPI.Model.EarningResult.t)} | {:error, Tesla.Env.t}
+  @spec company_earnings(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.EarningResult.t())} | {:error, Tesla.Env.t()}
   def company_earnings(connection, symbol, opts \\ []) do
     optional_params = %{
       :limit => :query
@@ -272,7 +286,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CompanyEarningsQualityScore.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_earnings_quality_score(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.CompanyEarningsQualityScore.t} | {:error, Tesla.Env.t}
+  @spec company_earnings_quality_score(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CompanyEarningsQualityScore.t()} | {:error, Tesla.Env.t()}
   def company_earnings_quality_score(connection, symbol, freq, _opts \\ []) do
     request =
       %{}
@@ -305,7 +320,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EbitEstimates.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_ebit_estimates(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.EbitEstimates.t} | {:error, Tesla.Env.t}
+  @spec company_ebit_estimates(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EbitEstimates.t()} | {:error, Tesla.Env.t()}
   def company_ebit_estimates(connection, symbol, opts \\ []) do
     optional_params = %{
       :freq => :query
@@ -342,7 +358,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EbitdaEstimates.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_ebitda_estimates(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.EbitdaEstimates.t} | {:error, Tesla.Env.t}
+  @spec company_ebitda_estimates(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EbitdaEstimates.t()} | {:error, Tesla.Env.t()}
   def company_ebitda_estimates(connection, symbol, opts \\ []) do
     optional_params = %{
       :freq => :query
@@ -379,7 +396,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EarningsEstimates.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_eps_estimates(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.EarningsEstimates.t} | {:error, Tesla.Env.t}
+  @spec company_eps_estimates(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EarningsEstimates.t()} | {:error, Tesla.Env.t()}
   def company_eps_estimates(connection, symbol, opts \\ []) do
     optional_params = %{
       :freq => :query
@@ -415,7 +433,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CompanyEsg.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_esg_score(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.CompanyEsg.t} | {:error, Tesla.Env.t}
+  @spec company_esg_score(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CompanyEsg.t()} | {:error, Tesla.Env.t()}
   def company_esg_score(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -446,7 +465,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CompanyExecutive.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_executive(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.CompanyExecutive.t} | {:error, Tesla.Env.t}
+  @spec company_executive(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CompanyExecutive.t()} | {:error, Tesla.Env.t()}
   def company_executive(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -479,7 +499,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%CompanyNews{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_news(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, list(FinnhubAPI.Model.CompanyNews.t)} | {:error, Tesla.Env.t}
+  @spec company_news(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.CompanyNews.t())} | {:error, Tesla.Env.t()}
   def company_news(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -513,7 +534,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%String{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_peers(Tesla.Env.client, String.t, keyword()) :: {:ok, list(String.t)} | {:error, Tesla.Env.t}
+  @spec company_peers(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(String.t())} | {:error, Tesla.Env.t()}
   def company_peers(connection, symbol, opts \\ []) do
     optional_params = %{
       :grouping => :query
@@ -551,7 +573,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CompanyProfile.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_profile(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.CompanyProfile.t} | {:error, Tesla.Env.t}
+  @spec company_profile(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CompanyProfile.t()} | {:error, Tesla.Env.t()}
   def company_profile(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -590,7 +613,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CompanyProfile2.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_profile2(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.CompanyProfile2.t} | {:error, Tesla.Env.t}
+  @spec company_profile2(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CompanyProfile2.t()} | {:error, Tesla.Env.t()}
   def company_profile2(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -628,7 +652,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.RevenueEstimates.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec company_revenue_estimates(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.RevenueEstimates.t} | {:error, Tesla.Env.t}
+  @spec company_revenue_estimates(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.RevenueEstimates.t()} | {:error, Tesla.Env.t()}
   def company_revenue_estimates(connection, symbol, opts \\ []) do
     optional_params = %{
       :freq => :query
@@ -666,7 +691,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CongressionalTrading.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec congressional_trading(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.CongressionalTrading.t} | {:error, Tesla.Env.t}
+  @spec congressional_trading(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CongressionalTrading.t()} | {:error, Tesla.Env.t()}
   def congressional_trading(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -698,7 +724,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%CountryMetadata{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec country(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.CountryMetadata.t)} | {:error, Tesla.Env.t}
+  @spec country(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.CountryMetadata.t())} | {:error, Tesla.Env.t()}
   def country(connection, _opts \\ []) do
     request =
       %{}
@@ -727,7 +754,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%CovidInfo{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec covid19(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.CovidInfo.t)} | {:error, Tesla.Env.t}
+  @spec covid19(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.CovidInfo.t())} | {:error, Tesla.Env.t()}
   def covid19(connection, _opts \\ []) do
     request =
       %{}
@@ -760,7 +788,14 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CryptoCandles.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec crypto_candles(Tesla.Env.client, String.t, String.t, integer(), integer(), keyword()) :: {:ok, FinnhubAPI.Model.CryptoCandles.t} | {:error, Tesla.Env.t}
+  @spec crypto_candles(
+          Tesla.Env.client(),
+          String.t(),
+          String.t(),
+          integer(),
+          integer(),
+          keyword()
+        ) :: {:ok, FinnhubAPI.Model.CryptoCandles.t()} | {:error, Tesla.Env.t()}
   def crypto_candles(connection, symbol, resolution, from, to, _opts \\ []) do
     request =
       %{}
@@ -793,7 +828,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%String{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec crypto_exchanges(Tesla.Env.client, keyword()) :: {:ok, list(String.t)} | {:error, Tesla.Env.t}
+  @spec crypto_exchanges(Tesla.Env.client(), keyword()) ::
+          {:ok, list(String.t())} | {:error, Tesla.Env.t()}
   def crypto_exchanges(connection, _opts \\ []) do
     request =
       %{}
@@ -823,7 +859,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.CryptoProfile.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec crypto_profile(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.CryptoProfile.t} | {:error, Tesla.Env.t}
+  @spec crypto_profile(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.CryptoProfile.t()} | {:error, Tesla.Env.t()}
   def crypto_profile(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -854,7 +891,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%CryptoSymbol{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec crypto_symbols(Tesla.Env.client, String.t, keyword()) :: {:ok, list(FinnhubAPI.Model.CryptoSymbol.t)} | {:error, Tesla.Env.t}
+  @spec crypto_symbols(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.CryptoSymbol.t())} | {:error, Tesla.Env.t()}
   def crypto_symbols(connection, exchange, _opts \\ []) do
     request =
       %{}
@@ -888,7 +926,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EarningsCalendar.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec earnings_calendar(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.EarningsCalendar.t} | {:error, Tesla.Env.t}
+  @spec earnings_calendar(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EarningsCalendar.t()} | {:error, Tesla.Env.t()}
   def earnings_calendar(connection, opts \\ []) do
     optional_params = %{
       :from => :query,
@@ -927,7 +966,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EconomicCalendar.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec economic_calendar(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.EconomicCalendar.t} | {:error, Tesla.Env.t}
+  @spec economic_calendar(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EconomicCalendar.t()} | {:error, Tesla.Env.t()}
   def economic_calendar(connection, opts \\ []) do
     optional_params = %{
       :from => :query,
@@ -962,7 +1002,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%EconomicCode{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec economic_code(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.EconomicCode.t)} | {:error, Tesla.Env.t}
+  @spec economic_code(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.EconomicCode.t())} | {:error, Tesla.Env.t()}
   def economic_code(connection, _opts \\ []) do
     request =
       %{}
@@ -992,7 +1033,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EconomicData.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec economic_data(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.EconomicData.t} | {:error, Tesla.Env.t}
+  @spec economic_data(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EconomicData.t()} | {:error, Tesla.Env.t()}
   def economic_data(connection, code, _opts \\ []) do
     request =
       %{}
@@ -1024,7 +1066,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EtfsCountryExposure.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec etfs_country_exposure(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.EtfsCountryExposure.t} | {:error, Tesla.Env.t}
+  @spec etfs_country_exposure(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EtfsCountryExposure.t()} | {:error, Tesla.Env.t()}
   def etfs_country_exposure(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1063,7 +1106,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EtfsHoldings.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec etfs_holdings(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.EtfsHoldings.t} | {:error, Tesla.Env.t}
+  @spec etfs_holdings(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EtfsHoldings.t()} | {:error, Tesla.Env.t()}
   def etfs_holdings(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1102,7 +1146,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EtfsProfile.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec etfs_profile(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.EtfsProfile.t} | {:error, Tesla.Env.t}
+  @spec etfs_profile(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EtfsProfile.t()} | {:error, Tesla.Env.t()}
   def etfs_profile(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1139,7 +1184,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EtfsSectorExposure.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec etfs_sector_exposure(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.EtfsSectorExposure.t} | {:error, Tesla.Env.t}
+  @spec etfs_sector_exposure(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EtfsSectorExposure.t()} | {:error, Tesla.Env.t()}
   def etfs_sector_exposure(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1174,7 +1220,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%FdaComitteeMeeting{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec fda_committee_meeting_calendar(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.FdaComitteeMeeting.t)} | {:error, Tesla.Env.t}
+  @spec fda_committee_meeting_calendar(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.FdaComitteeMeeting.t())} | {:error, Tesla.Env.t()}
   def fda_committee_meeting_calendar(connection, _opts \\ []) do
     request =
       %{}
@@ -1209,7 +1256,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%Filing{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec filings(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.Filing.t)} | {:error, Tesla.Env.t}
+  @spec filings(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.Filing.t())} | {:error, Tesla.Env.t()}
   def filings(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1249,7 +1297,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SecSentimentAnalysis.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec filings_sentiment(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SecSentimentAnalysis.t} | {:error, Tesla.Env.t}
+  @spec filings_sentiment(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SecSentimentAnalysis.t()} | {:error, Tesla.Env.t()}
   def filings_sentiment(connection, access_number, _opts \\ []) do
     request =
       %{}
@@ -1282,7 +1331,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.FinancialStatements.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec financials(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.FinancialStatements.t} | {:error, Tesla.Env.t}
+  @spec financials(Tesla.Env.client(), String.t(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.FinancialStatements.t()} | {:error, Tesla.Env.t()}
   def financials(connection, symbol, statement, freq, _opts \\ []) do
     request =
       %{}
@@ -1320,7 +1370,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.FinancialsAsReported.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec financials_reported(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.FinancialsAsReported.t} | {:error, Tesla.Env.t}
+  @spec financials_reported(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.FinancialsAsReported.t()} | {:error, Tesla.Env.t()}
   def financials_reported(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1363,7 +1414,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.ForexCandles.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec forex_candles(Tesla.Env.client, String.t, String.t, integer(), integer(), keyword()) :: {:ok, FinnhubAPI.Model.ForexCandles.t} | {:error, Tesla.Env.t}
+  @spec forex_candles(Tesla.Env.client(), String.t(), String.t(), integer(), integer(), keyword()) ::
+          {:ok, FinnhubAPI.Model.ForexCandles.t()} | {:error, Tesla.Env.t()}
   def forex_candles(connection, symbol, resolution, from, to, _opts \\ []) do
     request =
       %{}
@@ -1396,7 +1448,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%String{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec forex_exchanges(Tesla.Env.client, keyword()) :: {:ok, list(String.t)} | {:error, Tesla.Env.t}
+  @spec forex_exchanges(Tesla.Env.client(), keyword()) ::
+          {:ok, list(String.t())} | {:error, Tesla.Env.t()}
   def forex_exchanges(connection, _opts \\ []) do
     request =
       %{}
@@ -1427,7 +1480,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.Forexrates.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec forex_rates(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.Forexrates.t} | {:error, Tesla.Env.t}
+  @spec forex_rates(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.Forexrates.t()} | {:error, Tesla.Env.t()}
   def forex_rates(connection, opts \\ []) do
     optional_params = %{
       :base => :query,
@@ -1463,7 +1517,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%ForexSymbol{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec forex_symbols(Tesla.Env.client, String.t, keyword()) :: {:ok, list(FinnhubAPI.Model.ForexSymbol.t)} | {:error, Tesla.Env.t}
+  @spec forex_symbols(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.ForexSymbol.t())} | {:error, Tesla.Env.t()}
   def forex_symbols(connection, exchange, _opts \\ []) do
     request =
       %{}
@@ -1495,7 +1550,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.FundOwnership.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec fund_ownership(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.FundOwnership.t} | {:error, Tesla.Env.t}
+  @spec fund_ownership(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.FundOwnership.t()} | {:error, Tesla.Env.t()}
   def fund_ownership(connection, symbol, opts \\ []) do
     optional_params = %{
       :limit => :query
@@ -1531,7 +1587,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, nil}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec global_filings_download(Tesla.Env.client, String.t, keyword()) :: {:error, Tesla.Env.t}
+  @spec global_filings_download(Tesla.Env.client(), String.t(), keyword()) ::
+          {:error, Tesla.Env.t()}
   def global_filings_download(connection, document_id, _opts \\ []) do
     request =
       %{}
@@ -1542,7 +1599,7 @@ defmodule FinnhubAPI.Api.Default do
 
     connection
     |> Connection.request(request)
-    |> evaluate_response()
+    |> evaluate_response([])
   end
 
   @doc """
@@ -1560,7 +1617,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SearchResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec global_filings_search(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.SearchResponse.t} | {:error, Tesla.Env.t}
+  @spec global_filings_search(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SearchResponse.t()} | {:error, Tesla.Env.t()}
   def global_filings_search(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -1597,7 +1655,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SearchFilter.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec global_filings_search_filter(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SearchFilter.t} | {:error, Tesla.Env.t}
+  @spec global_filings_search_filter(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SearchFilter.t()} | {:error, Tesla.Env.t()}
   def global_filings_search_filter(connection, field, opts \\ []) do
     optional_params = %{
       :source => :query
@@ -1633,7 +1692,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.IndicesConstituents.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec indices_constituents(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.IndicesConstituents.t} | {:error, Tesla.Env.t}
+  @spec indices_constituents(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.IndicesConstituents.t()} | {:error, Tesla.Env.t()}
   def indices_constituents(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -1664,7 +1724,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.IndicesHistoricalConstituents.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec indices_historical_constituents(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.IndicesHistoricalConstituents.t} | {:error, Tesla.Env.t}
+  @spec indices_historical_constituents(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.IndicesHistoricalConstituents.t()} | {:error, Tesla.Env.t()}
   def indices_historical_constituents(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -1697,7 +1758,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InsiderSentiments.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec insider_sentiment(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.InsiderSentiments.t} | {:error, Tesla.Env.t}
+  @spec insider_sentiment(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.InsiderSentiments.t()} | {:error, Tesla.Env.t()}
   def insider_sentiment(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -1732,7 +1794,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InsiderTransactions.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec insider_transactions(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.InsiderTransactions.t} | {:error, Tesla.Env.t}
+  @spec insider_transactions(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.InsiderTransactions.t()} | {:error, Tesla.Env.t()}
   def insider_transactions(connection, symbol, opts \\ []) do
     optional_params = %{
       :from => :query,
@@ -1772,7 +1835,14 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InstitutionalOwnership.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec institutional_ownership(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.InstitutionalOwnership.t} | {:error, Tesla.Env.t}
+  @spec institutional_ownership(
+          Tesla.Env.client(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          keyword()
+        ) :: {:ok, FinnhubAPI.Model.InstitutionalOwnership.t()} | {:error, Tesla.Env.t()}
   def institutional_ownership(connection, symbol, cusip, from, to, _opts \\ []) do
     request =
       %{}
@@ -1808,7 +1878,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InstitutionalPortfolio.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec institutional_portfolio(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.InstitutionalPortfolio.t} | {:error, Tesla.Env.t}
+  @spec institutional_portfolio(Tesla.Env.client(), String.t(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.InstitutionalPortfolio.t()} | {:error, Tesla.Env.t()}
   def institutional_portfolio(connection, cik, from, to, _opts \\ []) do
     request =
       %{}
@@ -1841,7 +1912,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InstitutionalProfile.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec institutional_profile(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.InstitutionalProfile.t} | {:error, Tesla.Env.t}
+  @spec institutional_profile(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.InstitutionalProfile.t()} | {:error, Tesla.Env.t()}
   def institutional_profile(connection, opts \\ []) do
     optional_params = %{
       :cik => :query
@@ -1877,7 +1949,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%InternationalFiling{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec international_filings(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.InternationalFiling.t)} | {:error, Tesla.Env.t}
+  @spec international_filings(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.InternationalFiling.t())} | {:error, Tesla.Env.t()}
   def international_filings(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -1913,7 +1986,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InvestmentThemes.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec investment_themes(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.InvestmentThemes.t} | {:error, Tesla.Env.t}
+  @spec investment_themes(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.InvestmentThemes.t()} | {:error, Tesla.Env.t()}
   def investment_themes(connection, theme, _opts \\ []) do
     request =
       %{}
@@ -1945,7 +2019,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.IpoCalendar.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec ipo_calendar(Tesla.Env.client, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.IpoCalendar.t} | {:error, Tesla.Env.t}
+  @spec ipo_calendar(Tesla.Env.client(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.IpoCalendar.t()} | {:error, Tesla.Env.t()}
   def ipo_calendar(connection, from, to, _opts \\ []) do
     request =
       %{}
@@ -1978,7 +2053,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.IsinChange.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec isin_change(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.IsinChange.t} | {:error, Tesla.Env.t}
+  @spec isin_change(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.IsinChange.t()} | {:error, Tesla.Env.t()}
   def isin_change(connection, from, to, _opts \\ []) do
     request =
       %{}
@@ -2010,7 +2086,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MarketHoliday.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec market_holiday(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.MarketHoliday.t} | {:error, Tesla.Env.t}
+  @spec market_holiday(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MarketHoliday.t()} | {:error, Tesla.Env.t()}
   def market_holiday(connection, exchange, _opts \\ []) do
     request =
       %{}
@@ -2042,7 +2119,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%MarketNews{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec market_news(Tesla.Env.client, String.t, keyword()) :: {:ok, list(FinnhubAPI.Model.MarketNews.t)} | {:error, Tesla.Env.t}
+  @spec market_news(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.MarketNews.t())} | {:error, Tesla.Env.t()}
   def market_news(connection, category, opts \\ []) do
     optional_params = %{
       :minId => :query
@@ -2078,7 +2156,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MarketStatus.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec market_status(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.MarketStatus.t} | {:error, Tesla.Env.t}
+  @spec market_status(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MarketStatus.t()} | {:error, Tesla.Env.t()}
   def market_status(connection, exchange, _opts \\ []) do
     request =
       %{}
@@ -2110,7 +2189,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MutualFundCountryExposure.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec mutual_fund_country_exposure(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.MutualFundCountryExposure.t} | {:error, Tesla.Env.t}
+  @spec mutual_fund_country_exposure(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MutualFundCountryExposure.t()} | {:error, Tesla.Env.t()}
   def mutual_fund_country_exposure(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -2146,7 +2226,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MutualFundEet.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec mutual_fund_eet(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.MutualFundEet.t} | {:error, Tesla.Env.t}
+  @spec mutual_fund_eet(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MutualFundEet.t()} | {:error, Tesla.Env.t()}
   def mutual_fund_eet(connection, isin, _opts \\ []) do
     request =
       %{}
@@ -2177,7 +2258,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MutualFundEetPai.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec mutual_fund_eet_pai(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.MutualFundEetPai.t} | {:error, Tesla.Env.t}
+  @spec mutual_fund_eet_pai(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MutualFundEetPai.t()} | {:error, Tesla.Env.t()}
   def mutual_fund_eet_pai(connection, isin, _opts \\ []) do
     request =
       %{}
@@ -2210,7 +2292,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MutualFundHoldings.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec mutual_fund_holdings(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.MutualFundHoldings.t} | {:error, Tesla.Env.t}
+  @spec mutual_fund_holdings(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MutualFundHoldings.t()} | {:error, Tesla.Env.t()}
   def mutual_fund_holdings(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -2248,7 +2331,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MutualFundProfile.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec mutual_fund_profile(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.MutualFundProfile.t} | {:error, Tesla.Env.t}
+  @spec mutual_fund_profile(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MutualFundProfile.t()} | {:error, Tesla.Env.t()}
   def mutual_fund_profile(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -2285,7 +2369,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.MutualFundSectorExposure.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec mutual_fund_sector_exposure(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.MutualFundSectorExposure.t} | {:error, Tesla.Env.t}
+  @spec mutual_fund_sector_exposure(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.MutualFundSectorExposure.t()} | {:error, Tesla.Env.t()}
   def mutual_fund_sector_exposure(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -2321,7 +2406,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.NewsSentiment.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec news_sentiment(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.NewsSentiment.t} | {:error, Tesla.Env.t}
+  @spec news_sentiment(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.NewsSentiment.t()} | {:error, Tesla.Env.t()}
   def news_sentiment(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -2353,7 +2439,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.Ownership.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec ownership(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.Ownership.t} | {:error, Tesla.Env.t}
+  @spec ownership(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.Ownership.t()} | {:error, Tesla.Env.t()}
   def ownership(connection, symbol, opts \\ []) do
     optional_params = %{
       :limit => :query
@@ -2390,7 +2477,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.PatternRecognition.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec pattern_recognition(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.PatternRecognition.t} | {:error, Tesla.Env.t}
+  @spec pattern_recognition(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.PatternRecognition.t()} | {:error, Tesla.Env.t()}
   def pattern_recognition(connection, symbol, resolution, _opts \\ []) do
     request =
       %{}
@@ -2424,7 +2512,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.PressRelease.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec press_releases(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.PressRelease.t} | {:error, Tesla.Env.t}
+  @spec press_releases(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.PressRelease.t()} | {:error, Tesla.Env.t()}
   def press_releases(connection, symbol, opts \\ []) do
     optional_params = %{
       :from => :query,
@@ -2462,7 +2551,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.PriceMetrics.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec price_metrics(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.PriceMetrics.t} | {:error, Tesla.Env.t}
+  @spec price_metrics(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.PriceMetrics.t()} | {:error, Tesla.Env.t()}
   def price_metrics(connection, symbol, opts \\ []) do
     optional_params = %{
       :date => :query
@@ -2498,7 +2588,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.PriceTarget.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec price_target(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.PriceTarget.t} | {:error, Tesla.Env.t}
+  @spec price_target(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.PriceTarget.t()} | {:error, Tesla.Env.t()}
   def price_target(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -2529,7 +2620,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.Quote.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec quote(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.Quote.t} | {:error, Tesla.Env.t}
+  @spec quote(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.Quote.t()} | {:error, Tesla.Env.t()}
   def quote(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -2560,7 +2652,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%RecommendationTrend{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec recommendation_trends(Tesla.Env.client, String.t, keyword()) :: {:ok, list(FinnhubAPI.Model.RecommendationTrend.t)} | {:error, Tesla.Env.t}
+  @spec recommendation_trends(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.RecommendationTrend.t())} | {:error, Tesla.Env.t()}
   def recommendation_trends(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -2592,7 +2685,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.RevenueBreakdown.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec revenue_breakdown(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.RevenueBreakdown.t} | {:error, Tesla.Env.t}
+  @spec revenue_breakdown(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.RevenueBreakdown.t()} | {:error, Tesla.Env.t()}
   def revenue_breakdown(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -2628,7 +2722,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.InFilingResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec search_in_filing(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.InFilingResponse.t} | {:error, Tesla.Env.t}
+  @spec search_in_filing(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.InFilingResponse.t()} | {:error, Tesla.Env.t()}
   def search_in_filing(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -2664,7 +2759,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SectorMetric.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec sector_metric(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SectorMetric.t} | {:error, Tesla.Env.t}
+  @spec sector_metric(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SectorMetric.t()} | {:error, Tesla.Env.t()}
   def sector_metric(connection, region, _opts \\ []) do
     request =
       %{}
@@ -2697,7 +2793,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SimilarityIndex.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec similarity_index(Tesla.Env.client, keyword()) :: {:ok, FinnhubAPI.Model.SimilarityIndex.t} | {:error, Tesla.Env.t}
+  @spec similarity_index(Tesla.Env.client(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SimilarityIndex.t()} | {:error, Tesla.Env.t()}
   def similarity_index(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,
@@ -2736,7 +2833,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SocialSentiment.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec social_sentiment(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SocialSentiment.t} | {:error, Tesla.Env.t}
+  @spec social_sentiment(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SocialSentiment.t()} | {:error, Tesla.Env.t()}
   def social_sentiment(connection, symbol, opts \\ []) do
     optional_params = %{
       :from => :query,
@@ -2773,7 +2871,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.Dividends2.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_basic_dividends(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.Dividends2.t} | {:error, Tesla.Env.t}
+  @spec stock_basic_dividends(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.Dividends2.t()} | {:error, Tesla.Env.t()}
   def stock_basic_dividends(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -2804,7 +2903,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.LastBidAsk.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_bidask(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.LastBidAsk.t} | {:error, Tesla.Env.t}
+  @spec stock_bidask(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.LastBidAsk.t()} | {:error, Tesla.Env.t()}
   def stock_bidask(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -2838,7 +2938,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.StockCandles.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_candles(Tesla.Env.client, String.t, String.t, integer(), integer(), keyword()) :: {:ok, FinnhubAPI.Model.StockCandles.t} | {:error, Tesla.Env.t}
+  @spec stock_candles(Tesla.Env.client(), String.t(), String.t(), integer(), integer(), keyword()) ::
+          {:ok, FinnhubAPI.Model.StockCandles.t()} | {:error, Tesla.Env.t()}
   def stock_candles(connection, symbol, resolution, from, to, _opts \\ []) do
     request =
       %{}
@@ -2874,7 +2975,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%Dividends{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_dividends(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, list(FinnhubAPI.Model.Dividends.t)} | {:error, Tesla.Env.t}
+  @spec stock_dividends(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.Dividends.t())} | {:error, Tesla.Env.t()}
   def stock_dividends(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -2909,7 +3011,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.LobbyingResult.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_lobbying(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.LobbyingResult.t} | {:error, Tesla.Env.t}
+  @spec stock_lobbying(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.LobbyingResult.t()} | {:error, Tesla.Env.t()}
   def stock_lobbying(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -2945,7 +3048,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.HistoricalNbbo.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_nbbo(Tesla.Env.client, String.t, Date.t, integer(), integer(), keyword()) :: {:ok, FinnhubAPI.Model.HistoricalNbbo.t} | {:error, Tesla.Env.t}
+  @spec stock_nbbo(Tesla.Env.client(), String.t(), Date.t(), integer(), integer(), keyword()) ::
+          {:ok, FinnhubAPI.Model.HistoricalNbbo.t()} | {:error, Tesla.Env.t()}
   def stock_nbbo(connection, symbol, date, limit, skip, _opts \\ []) do
     request =
       %{}
@@ -2981,7 +3085,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%Split{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_splits(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, list(FinnhubAPI.Model.Split.t)} | {:error, Tesla.Env.t}
+  @spec stock_splits(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.Split.t())} | {:error, Tesla.Env.t()}
   def stock_splits(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -3017,7 +3122,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%StockSymbol{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_symbols(Tesla.Env.client, String.t, keyword()) :: {:ok, list(FinnhubAPI.Model.StockSymbol.t)} | {:error, Tesla.Env.t}
+  @spec stock_symbols(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.StockSymbol.t())} | {:error, Tesla.Env.t()}
   def stock_symbols(connection, exchange, opts \\ []) do
     optional_params = %{
       :mic => :query,
@@ -3058,7 +3164,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.TickData.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_tick(Tesla.Env.client, String.t, Date.t, integer(), integer(), keyword()) :: {:ok, FinnhubAPI.Model.TickData.t} | {:error, Tesla.Env.t}
+  @spec stock_tick(Tesla.Env.client(), String.t(), Date.t(), integer(), integer(), keyword()) ::
+          {:ok, FinnhubAPI.Model.TickData.t()} | {:error, Tesla.Env.t()}
   def stock_tick(connection, symbol, date, limit, skip, _opts \\ []) do
     request =
       %{}
@@ -3094,7 +3201,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.UsaSpendingResult.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_usa_spending(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.UsaSpendingResult.t} | {:error, Tesla.Env.t}
+  @spec stock_usa_spending(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.UsaSpendingResult.t()} | {:error, Tesla.Env.t()}
   def stock_usa_spending(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -3129,7 +3237,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.UsptoPatentResult.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_uspto_patent(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.UsptoPatentResult.t} | {:error, Tesla.Env.t}
+  @spec stock_uspto_patent(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.UsptoPatentResult.t()} | {:error, Tesla.Env.t()}
   def stock_uspto_patent(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -3164,7 +3273,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.VisaApplicationResult.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec stock_visa_application(Tesla.Env.client, String.t, Date.t, Date.t, keyword()) :: {:ok, FinnhubAPI.Model.VisaApplicationResult.t} | {:error, Tesla.Env.t}
+  @spec stock_visa_application(Tesla.Env.client(), String.t(), Date.t(), Date.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.VisaApplicationResult.t()} | {:error, Tesla.Env.t()}
   def stock_visa_application(connection, symbol, from, to, _opts \\ []) do
     request =
       %{}
@@ -3197,7 +3307,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SupplyChainRelationships.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec supply_chain_relationships(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SupplyChainRelationships.t} | {:error, Tesla.Env.t}
+  @spec supply_chain_relationships(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SupplyChainRelationships.t()} | {:error, Tesla.Env.t()}
   def supply_chain_relationships(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -3229,7 +3340,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SupportResistance.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec support_resistance(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SupportResistance.t} | {:error, Tesla.Env.t}
+  @spec support_resistance(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SupportResistance.t()} | {:error, Tesla.Env.t()}
   def support_resistance(connection, symbol, resolution, _opts \\ []) do
     request =
       %{}
@@ -3262,7 +3374,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SymbolChange.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec symbol_change(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SymbolChange.t} | {:error, Tesla.Env.t}
+  @spec symbol_change(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SymbolChange.t()} | {:error, Tesla.Env.t()}
   def symbol_change(connection, from, to, _opts \\ []) do
     request =
       %{}
@@ -3294,7 +3407,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.SymbolLookup.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec symbol_search(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.SymbolLookup.t} | {:error, Tesla.Env.t}
+  @spec symbol_search(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.SymbolLookup.t()} | {:error, Tesla.Env.t()}
   def symbol_search(connection, q, _opts \\ []) do
     request =
       %{}
@@ -3330,7 +3444,15 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec technical_indicator(Tesla.Env.client, String.t, String.t, integer(), integer(), String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec technical_indicator(
+          Tesla.Env.client(),
+          String.t(),
+          String.t(),
+          integer(),
+          integer(),
+          String.t(),
+          keyword()
+        ) :: {:ok, Map.t()} | {:error, Tesla.Env.t()}
   def technical_indicator(connection, symbol, resolution, from, to, indicator, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -3370,7 +3492,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EarningsCallTranscripts.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec transcripts(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.EarningsCallTranscripts.t} | {:error, Tesla.Env.t}
+  @spec transcripts(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EarningsCallTranscripts.t()} | {:error, Tesla.Env.t()}
   def transcripts(connection, id, _opts \\ []) do
     request =
       %{}
@@ -3401,7 +3524,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, FinnhubAPI.Model.EarningsCallTranscriptsList.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec transcripts_list(Tesla.Env.client, String.t, keyword()) :: {:ok, FinnhubAPI.Model.EarningsCallTranscriptsList.t} | {:error, Tesla.Env.t}
+  @spec transcripts_list(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, FinnhubAPI.Model.EarningsCallTranscriptsList.t()} | {:error, Tesla.Env.t()}
   def transcripts_list(connection, symbol, _opts \\ []) do
     request =
       %{}
@@ -3434,7 +3558,8 @@ defmodule FinnhubAPI.Api.Default do
   - `{:ok, [%UpgradeDowngrade{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec upgrade_downgrade(Tesla.Env.client, keyword()) :: {:ok, list(FinnhubAPI.Model.UpgradeDowngrade.t)} | {:error, Tesla.Env.t}
+  @spec upgrade_downgrade(Tesla.Env.client(), keyword()) ::
+          {:ok, list(FinnhubAPI.Model.UpgradeDowngrade.t())} | {:error, Tesla.Env.t()}
   def upgrade_downgrade(connection, opts \\ []) do
     optional_params = %{
       :symbol => :query,

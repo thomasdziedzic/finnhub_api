@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.UsptoPatentResult do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.UsptoPatentResult do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :data => [FinnhubAPI.Model.UsptoPatent.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :data => [FinnhubAPI.Model.UsptoPatent.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.UsptoPatent)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.UsptoPatent)
   end
 end
-

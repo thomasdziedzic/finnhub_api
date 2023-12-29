@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EbitEstimates do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,16 +14,15 @@ defmodule FinnhubAPI.Model.EbitEstimates do
   ]
 
   @type t :: %__MODULE__{
-    :data => [FinnhubAPI.Model.EbitEstimatesInfo.t] | nil,
-    :freq => String.t | nil,
-    :symbol => String.t | nil
-  }
+          :data => [FinnhubAPI.Model.EbitEstimatesInfo.t()] | nil,
+          :freq => String.t() | nil,
+          :symbol => String.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.EbitEstimatesInfo)
+    |> Deserializer.deserialize(:data, :list, FinnhubAPI.Model.EbitEstimatesInfo)
   end
 end
-

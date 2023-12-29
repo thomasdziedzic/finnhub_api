@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.Quote do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -18,17 +18,16 @@ defmodule FinnhubAPI.Model.Quote do
   ]
 
   @type t :: %__MODULE__{
-    :o => float() | nil,
-    :h => float() | nil,
-    :l => float() | nil,
-    :c => float() | nil,
-    :pc => float() | nil,
-    :d => float() | nil,
-    :dp => float() | nil
-  }
+          :o => float() | nil,
+          :h => float() | nil,
+          :l => float() | nil,
+          :c => float() | nil,
+          :pc => float() | nil,
+          :d => float() | nil,
+          :dp => float() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

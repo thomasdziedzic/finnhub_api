@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.MutualFundEet do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,12 +13,11 @@ defmodule FinnhubAPI.Model.MutualFundEet do
   ]
 
   @type t :: %__MODULE__{
-    :isin => String.t | nil,
-    :data => map() | nil
-  }
+          :isin => String.t() | nil,
+          :data => map() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

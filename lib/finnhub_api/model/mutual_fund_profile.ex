@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.MutualFundProfile do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.MutualFundProfile do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :profile => FinnhubAPI.Model.MutualFundProfileData.t | nil
-  }
+          :symbol => String.t() | nil,
+          :profile => FinnhubAPI.Model.MutualFundProfileData.t() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:profile, :struct, FinnhubAPI.Model.MutualFundProfileData)
+    |> Deserializer.deserialize(:profile, :struct, FinnhubAPI.Model.MutualFundProfileData)
   end
 end
-

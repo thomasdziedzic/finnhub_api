@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.TranscriptParticipant do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,13 +14,12 @@ defmodule FinnhubAPI.Model.TranscriptParticipant do
   ]
 
   @type t :: %__MODULE__{
-    :name => String.t | nil,
-    :description => String.t | nil,
-    :role => String.t | nil
-  }
+          :name => String.t() | nil,
+          :description => String.t() | nil,
+          :role => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

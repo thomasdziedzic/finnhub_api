@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.InvestmentThemePortfolio do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -12,11 +12,10 @@ defmodule FinnhubAPI.Model.InvestmentThemePortfolio do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil
-  }
+          :symbol => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-

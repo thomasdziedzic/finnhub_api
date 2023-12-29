@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SimilarityIndex do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -14,16 +14,15 @@ defmodule FinnhubAPI.Model.SimilarityIndex do
   ]
 
   @type t :: %__MODULE__{
-    :symbol => String.t | nil,
-    :cik => String.t | nil,
-    :similarity => [FinnhubAPI.Model.SimilarityIndexInfo.t] | nil
-  }
+          :symbol => String.t() | nil,
+          :cik => String.t() | nil,
+          :similarity => [FinnhubAPI.Model.SimilarityIndexInfo.t()] | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:similarity, :list, FinnhubAPI.Model.SimilarityIndexInfo)
+    |> Deserializer.deserialize(:similarity, :list, FinnhubAPI.Model.SimilarityIndexInfo)
   end
 end
-

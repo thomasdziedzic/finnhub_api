@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.SymbolLookup do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -13,15 +13,14 @@ defmodule FinnhubAPI.Model.SymbolLookup do
   ]
 
   @type t :: %__MODULE__{
-    :result => [FinnhubAPI.Model.SymbolLookupInfo.t] | nil,
-    :count => integer() | nil
-  }
+          :result => [FinnhubAPI.Model.SymbolLookupInfo.t()] | nil,
+          :count => integer() | nil
+        }
 
   alias FinnhubAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:result, :list, FinnhubAPI.Model.SymbolLookupInfo)
+    |> Deserializer.deserialize(:result, :list, FinnhubAPI.Model.SymbolLookupInfo)
   end
 end
-

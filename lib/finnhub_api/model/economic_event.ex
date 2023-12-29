@@ -3,7 +3,7 @@
 
 defmodule FinnhubAPI.Model.EconomicEvent do
   @moduledoc """
-  
+
   """
 
   @derive Jason.Encoder
@@ -19,18 +19,17 @@ defmodule FinnhubAPI.Model.EconomicEvent do
   ]
 
   @type t :: %__MODULE__{
-    :actual => float() | nil,
-    :prev => float() | nil,
-    :country => String.t | nil,
-    :unit => String.t | nil,
-    :estimate => float() | nil,
-    :event => String.t | nil,
-    :impact => String.t | nil,
-    :time => String.t | nil
-  }
+          :actual => float() | nil,
+          :prev => float() | nil,
+          :country => String.t() | nil,
+          :unit => String.t() | nil,
+          :estimate => float() | nil,
+          :event => String.t() | nil,
+          :impact => String.t() | nil,
+          :time => String.t() | nil
+        }
 
   def decode(value) do
     value
   end
 end
-
